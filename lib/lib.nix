@@ -1,0 +1,101 @@
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (pkgs) writeText writeTextFile runCommand formats;
+
+  engines = {
+    nix = {
+      name,
+      opts,
+      data,
+    }: let
+      format = opts.format or "json";
+      formatOpts = builtins.removeAttrs opts ["format"];
+      formatter = formats.${format} formatOpts;
+    in
+      formatter.generate name data;
+
+    string = {
+      name,
+      opts,
+      data,
+    }: let
+      executable = opts.executable or false;
+    in
+      writeTextFile {
+        inherit name executable;
+        text = data;
+      };
+
+    # only a passthru
+    derivation = {data, ...}: data;
+
+    gotmpl = {
+      name,
+      opts,
+      data,
+    }: let
+      inherit (opts) template;
+      gomplate = opts.gomplate or pkgs.gomplate;
+    in
+      runCommand name {
+        buildInputs = [gomplate];
+        passAsFile = ["dataJson"];
+        dataJson = builtins.toJSON data;
+      } ''
+        gomplate \
+          -c ".=$dataJsonPath?type=application/json" \
+          -f "${template}" \
+          -o "$out"
+      '';
+
+    jinja = {
+      name,
+      opts,
+      data,
+    }: let
+      inherit (opts) template;
+      python = opts.python or pkgs.python3;
+      dataJson = writeText "template-data.json" (builtins.toJSON data);
+      renderScript =
+        writeText "render.py"
+        # py
+        ''
+          import json
+          import sys
+          from jinja2 import Template
+
+          with open('${dataJson}', 'r') as f:
+              data = json.load(f)
+
+          with open('${template}', 'r') as f:
+              template_str = f.read()
+
+          template = Template(template_str)
+          print(template.render(**data))
+        '';
+    in
+      runCommand name {
+        buildInputs = [python python.pkgs.jinja2];
+      } ''
+        python ${renderScript} > $out
+      '';
+  };
+
+  buildAllFiles = files:
+    runCommand "soonix-files" {} ''
+      mkdir -p $out
+      ${lib.concatMapStringsSep "\n" (file:
+        # sh
+        ''
+          target_dir="$out/$(dirname "${file.path}")"
+          mkdir -p "$target_dir"
+          ln -sf "${file.src}" "$out/${file.path}"
+        '')
+      files}
+    '';
+in {
+  inherit engines buildAllFiles;
+}

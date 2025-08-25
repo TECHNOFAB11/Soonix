@@ -1,0 +1,46 @@
+{
+  "nodes": {
+    "devshell-lib": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1755673398,
+        "narHash": "sha256-51MmR+Eo1+bKDd/Ss77wwTqi4yAR2xgmyCSEbKWSpj0=",
+        "owner": "rensa-nix",
+        "repo": "devshell",
+        "rev": "e76bef387e8a4574f9b6d37b1a424e706491af08",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "rensa-nix",
+        "repo": "devshell",
+        "type": "gitlab"
+      }
+    },
+    "nixtest-lib": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1753957623,
+        "narHash": "sha256-kdImwKx57N0QL8HPUUb5ADwXFgSjaNOk39b/eKlzyTo=",
+        "owner": "TECHNOFAB",
+        "repo": "nixtest",
+        "rev": "22b43c9fe83be73c3f0648bbb54bc3c1cf7f96df",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "TECHNOFAB",
+        "repo": "nixtest",
+        "type": "gitlab"
+      }
+    },
+    "root": {
+      "inputs": {
+        "devshell-lib": "devshell-lib",
+        "nixtest-lib": "nixtest-lib"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
