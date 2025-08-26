@@ -30,6 +30,7 @@ in {
           generator = mkOption {
             type = types.enum ["nix" "string" "derivation" "gotmpl" "jinja" "template"];
             description = "Which engine to use for content generation";
+            default = "nix";
           };
 
           data = mkOption {
@@ -211,7 +212,7 @@ in {
             fi
 
             # Insert the file path before the end comment
-            ${pkgs.gnused}/bin/sed -i "/# end soonix/i $file" "$gitignore"
+            ${pkgs.gnused}/bin/sed -i "/# end soonix/i /$file" "$gitignore"
           fi
         }
 
