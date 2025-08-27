@@ -203,7 +203,7 @@ in {
           fi
 
           # Check if file is already in gitignore
-          if ! grep -Fxq "$file" "$gitignore"; then
+          if ! grep -Fxq "/$file" "$gitignore"; then
             # Add sentinel comments if not present
             if ! grep -q "# soonix" "$gitignore"; then
               echo "" >> "$gitignore"
