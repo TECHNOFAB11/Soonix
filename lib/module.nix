@@ -222,20 +222,24 @@ in {
 
         ${runHooks}
 
-        echo -n "[soonix] " >&2
+        local output=$'\E[msoonix:\E[38;5;8m'
+        local status=0
+
         if [[ ''${#_soonix_updated[@]} -gt 0 ]]; then
-          echo -n "[updated: ''${_soonix_updated[*]}] " >&2
+          output="$output [updated: ''${_soonix_updated[*]}]" >&2
         fi
-
         if [[ ''${#_soonix_uptodate[@]} -gt 0 ]]; then
-          echo -n "[unchanged: ''${_soonix_uptodate[*]}] " >&2
+          output="$output [unchanged: ''${_soonix_uptodate[*]}]" >&2
+        fi
+        if [[ ''${#_soonix_failed[@]} -gt 0 ]]; then
+          output="$output [failed: ''${_soonix_failed[*]}]" >&2
+          status=1
         fi
 
-        if [[ ''${#_soonix_failed[@]} -gt 0 ]]; then
-          echo "[failed: ''${_soonix_failed[*]}]" >&2
+        printf "%s\E[m\n" "$output" >&2
+
+        if [[ $status -eq 1 ]]; then
           exit 1
-        else
-          echo ""
         fi
       '';
 
