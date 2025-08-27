@@ -17,6 +17,23 @@
         "type": "gitlab"
       }
     },
+    "nixmkdocs": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1755785622,
+        "narHash": "sha256-xBb9PCkszmrWSEqUiPC7oBJABm1thF572S5QHtloZ+M=",
+        "owner": "TECHNOFAB",
+        "repo": "nixmkdocs",
+        "rev": "61da605a9bff12f66c4b743f43aea59ca200f533",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "TECHNOFAB",
+        "repo": "nixmkdocs",
+        "type": "gitlab"
+      }
+    },
     "nixtest-lib": {
       "locked": {
         "dir": "lib",
@@ -37,6 +54,7 @@
     "root": {
       "inputs": {
         "devshell-lib": "devshell-lib",
+        "nixmkdocs": "nixmkdocs",
         "nixtest-lib": "nixtest-lib"
       }
     }
