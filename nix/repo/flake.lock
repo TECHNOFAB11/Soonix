@@ -17,7 +17,7 @@
         "type": "gitlab"
       }
     },
-    "nixmkdocs": {
+    "nixmkdocs-lib": {
       "locked": {
         "dir": "lib",
         "lastModified": 1755785622,
@@ -54,8 +54,25 @@
     "root": {
       "inputs": {
         "devshell-lib": "devshell-lib",
-        "nixmkdocs": "nixmkdocs",
-        "nixtest-lib": "nixtest-lib"
+        "nixmkdocs-lib": "nixmkdocs-lib",
+        "nixtest-lib": "nixtest-lib",
+        "treefmt-nix": "treefmt-nix"
+      }
+    },
+    "treefmt-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755934250,
+        "narHash": "sha256-CsDojnMgYsfshQw3t4zjRUkmMmUdZGthl16bXVWgRYU=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "74e1a52d5bd9430312f8d1b8b0354c92c17453e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
       }
     }
   },

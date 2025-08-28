@@ -1,9 +1,9 @@
 # Soonix
 
-Soonix helps you declaratively manage configuration files, build scripts, etc. using the Nix module system. 
+Soonix helps you declaratively manage configuration files, build scripts, etc. using the Nix module system.
 It minimizes configuration clutter and provides shell hooks for automatic file management.
 
-Heavily based on and inspired by [Nixago](https://github.com/nix-community/nixago), thus the name (ago <-> soon, if that wasn't obvious).
+Heavily based on and inspired by [Nixago](https://github.com/nix-community/nixago), thus the name (ago \<-> soon, if that wasn't obvious).
 
 ## Features
 

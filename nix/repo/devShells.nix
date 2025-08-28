@@ -1,11 +1,21 @@
-{inputs, ...}: let
-  inherit (inputs) pkgs devshell soonix;
+{
+  cell,
+  inputs,
+  ...
+}: let
+  inherit (inputs) pkgs devshell soonix treefmt;
 in {
   default = devshell.mkShell {
     imports = [soonix.devshellModule];
     packages = [
       pkgs.alejandra
       pkgs.nil
+      (treefmt.mkWrapper pkgs {
+        programs = {
+          alejandra.enable = true;
+          mdformat.enable = true;
+        };
+      })
     ];
 
     soonix.hooks.test = {
