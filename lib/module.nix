@@ -24,24 +24,32 @@ in {
 
           output = mkOption {
             type = types.str;
-            description = "The relative path where the generated file should be placed.";
+            description = ''
+              The relative path where the generated file should be placed.
+            '';
           };
 
           generator = mkOption {
             type = types.enum ["nix" "string" "derivation" "gotmpl" "jinja" "template"];
-            description = "Which engine to use for content generation.";
+            description = ''
+              Which engine to use for content generation.
+            '';
             default = "nix";
           };
 
           data = mkOption {
             type = types.anything;
-            description = "The input data for the chosen generator.";
+            description = ''
+              The input data for the chosen generator.
+            '';
           };
 
           opts = mkOption {
             type = types.attrs;
             default = {};
-            description = "Generator-specific options.";
+            description = ''
+              Generator-specific options.
+            '';
           };
 
           hook = mkOption {
@@ -50,31 +58,41 @@ in {
                 mode = mkOption {
                   type = types.enum ["link" "copy"];
                   default = "link";
-                  description = "How the file should be managed (link or copy).";
+                  description = ''
+                    How the file should be managed (link or copy).
+                  '';
                 };
 
                 gitignore = mkOption {
                   type = types.bool;
                   default = true;
-                  description = "Whether to add the output path to .gitignore.";
+                  description = ''
+                    Whether to add the output path to .gitignore.
+                  '';
                 };
 
                 extra = mkOption {
                   type = types.str;
                   default = "";
-                  description = "Additional bash commands to execute after file operation.";
+                  description = ''
+                    Additional bash commands to execute after file operation.
+                  '';
                 };
               };
             };
             default = {};
-            description = "Hook-specific options.";
+            description = ''
+              Hook-specific options.
+            '';
           };
 
           generatedDerivation = mkOption {
             type = types.package;
             internal = true;
             readOnly = true;
-            description = "The generated derivation for this file.";
+            description = ''
+              The generated derivation for this file.
+            '';
           };
         };
 
@@ -87,24 +105,42 @@ in {
         };
       }));
       default = {};
-      description = "Configuration of the hooks.";
+      description = ''
+        Configuration of the hooks.
+      '';
     };
 
     shellHook = mkOption {
       type = types.str;
       readOnly = true;
-      description = "Generated shell hook script (as a string) for managing all files (readonly).";
+      description = ''
+        Generated shell hook script (as a string) for managing all files. (readonly)
+      '';
     };
     shellHookFile = mkOption {
       type = types.package;
       readOnly = true;
-      description = "Generated shell hook script for managing all files (readonly).";
+      description = ''
+        Generated shell hook script for managing all files. (readonly)
+      '';
     };
 
     finalFiles = mkOption {
       type = types.package;
       readOnly = true;
-      description = "Aggregated derivation containing all managed files (readonly).";
+      description = ''
+        Aggregated derivation containing all managed files. (readonly)
+      '';
+    };
+    packages = mkOption {
+      type = types.attrsOf types.package;
+      readOnly = true;
+      description = ''
+        Packages for updating the hooks without a devshell. (readonly)
+      '';
+      example = {
+        "soonix:update" = "<derivation>";
+      };
     };
   };
 
@@ -259,5 +295,12 @@ in {
       else "";
     shellHookFile = pkgs.writeShellScript "shellHook" shellHook;
     finalFiles = buildAllFiles allFiles;
+    # make it simpler to update the hooks without any devshell
+    packages."soonix:update" = pkgs.writeShellScriptBin "soonix:update" ''
+      function _soonix() {
+        ${shellHook}
+      }
+      _soonix
+    '';
   };
 }
