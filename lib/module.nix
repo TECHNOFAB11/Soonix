@@ -133,6 +133,8 @@ in {
             if [[ ! -f "${hook.output}" ]] || ! cmp -s "${hook.generatedDerivation}" "${hook.output}"; then
               _soonix_log "info" "${hookName}" "Copying file: ${hook.generatedDerivation} -> ${hook.output}"
               mkdir -p "$(dirname "${hook.output}")"
+              # required since they're read only
+              rm -f "${hook.output}"
               cp "${hook.generatedDerivation}" "${hook.output}"
               _changed=true
             else
