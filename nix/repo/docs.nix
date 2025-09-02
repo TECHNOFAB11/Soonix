@@ -43,6 +43,8 @@ in
         };
         nav = [
           {"Introduction" = "index.md";}
+          {"Usage" = "usage.md";}
+          {"Integrations" = "integrations.md";}
           {"Options" = "options.md";}
         ];
         markdown_extensions = [
