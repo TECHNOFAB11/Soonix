@@ -9,7 +9,6 @@ in {
   default = devshell.mkShell {
     imports = [soonix.devshellModule];
     packages = [
-      pkgs.alejandra
       pkgs.nil
       (treefmt.mkWrapper pkgs {
         programs = {

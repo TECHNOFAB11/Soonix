@@ -1,4 +1,5 @@
 {
+  pkgs,
   ntlib,
   soonix,
   ...
@@ -42,6 +43,7 @@ in {
         in
           # sh
           ''
+            ${ntlib.helpers.path [pkgs.gnugrep]}
             ${ntlib.helpers.scriptHelpers}
             assert "-f ${finalFiles}/out/test.json" "should exist"
             assert_file_contains ${finalFiles}/out/test.json "soonix-test"
@@ -61,6 +63,7 @@ in {
         in
           # sh
           ''
+            ${ntlib.helpers.path [pkgs.gnugrep]}
             ${ntlib.helpers.scriptHelpers}
             assert "-f ${shellHook}" "should exist"
             assert_file_contains ${shellHook} "gomplate"
