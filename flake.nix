@@ -23,12 +23,14 @@
         (simple "tests")
         (simple "docs")
         (simple "soonix")
+        (simple "ci")
       ];
     }
     {
       packages = ren.select self [
         ["repo" "tests"]
         ["repo" "docs"]
+        ["repo" "ci" "packages"]
         ["repo" "soonix" "packages"]
       ];
     };

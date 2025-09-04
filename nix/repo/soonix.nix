@@ -1,11 +1,14 @@
 {
   inputs,
+  cell,
   ...
 }: let
   inherit (inputs) soonix;
+  inherit (cell) ci;
 in
   (soonix.make {
     hooks = {
+      ci = ci.soonix;
       test = {
         output = "test.yaml";
         generator = "nix";
