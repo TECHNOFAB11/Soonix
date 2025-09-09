@@ -3,11 +3,10 @@
   inputs,
   ...
 }: let
-  inherit (inputs) pkgs devshell soonix treefmt;
-  soonixShellHook = cell.soonix.shellHook;
+  inherit (inputs) pkgs devshell treefmt;
 in {
   default = devshell.mkShell {
-    imports = [soonix.devshellModule];
+    imports = [cell.soonix.devshellModule];
     packages = [
       pkgs.nil
       (treefmt.mkWrapper pkgs {
@@ -17,6 +16,5 @@ in {
         };
       })
     ];
-    inherit soonixShellHook;
   };
 }

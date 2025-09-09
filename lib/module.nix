@@ -124,6 +124,13 @@ in {
         Generated shell hook script for managing all files. (readonly)
       '';
     };
+    devshellModule = mkOption {
+      type = types.attrs;
+      readOnly = true;
+      description = ''
+        Devshell module with automatically configured hooks, just import and you're good to go. (readonly)
+      '';
+    };
 
     finalFiles = mkOption {
       type = types.package;
@@ -294,6 +301,10 @@ in {
       then generatedShellHook
       else "";
     shellHookFile = pkgs.writeShellScript "shellHook" shellHook;
+    devshellModule = {
+      imports = [./devshellModule.nix];
+      config.soonixShellHook = shellHook;
+    };
     finalFiles = buildAllFiles allFiles;
     # make it simpler to update the hooks without any devshell
     packages."soonix:update" = pkgs.writeShellScriptBin "soonix:update" ''
