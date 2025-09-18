@@ -34,12 +34,13 @@ in
       };
       config = {
         site_name = "Soonix";
+        site_url = "https://soonix.projects.tf";
         repo_name = "TECHNOFAB/soonix";
         repo_url = "https://gitlab.com/TECHNOFAB/soonix";
         theme = {
-          logo = "images/logo.png";
+          logo = "images/logo.svg";
           icon.repo = "simple/gitlab";
-          favicon = "images/favicon.png";
+          favicon = "images/logo.svg";
         };
         nav = [
           {"Introduction" = "index.md";}
