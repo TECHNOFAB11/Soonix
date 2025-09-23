@@ -37,6 +37,7 @@ in
         site_url = "https://soonix.projects.tf";
         repo_name = "TECHNOFAB/soonix";
         repo_url = "https://gitlab.com/TECHNOFAB/soonix";
+        extra_css = ["style.css"];
         theme = {
           logo = "images/logo.svg";
           icon.repo = "simple/gitlab";
