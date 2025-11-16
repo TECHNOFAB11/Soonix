@@ -22,5 +22,14 @@ in
           gitignore = true;
         };
       };
+      testJson = {
+        output = "test.json";
+        data.hello = "world";
+        opts.format = "json";
+        hook = {
+          mode = "copy";
+          gitignore = true;
+        };
+      };
     };
   }).config
