@@ -102,4 +102,3 @@ Soonix is designed as a cleaner, more maintainable alternative to Nixago:
 Ready to start using Soonix? Check out the [Usage Guide](./usage.md) for detailed
 setup instructions and examples, or browse the [Integration Guide](./integrations.md)
 to see how to use Soonix with different development tools and frameworks.
-
