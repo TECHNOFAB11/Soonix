@@ -30,6 +30,12 @@
       data.hello = "world";
       opts.template = ./fixtures/jinja_template;
     };
+    mustache = {
+      output = "mustache";
+      generator = "mustache";
+      data.hello = "world";
+      opts.template = ./fixtures/mustache_template;
+    };
   };
 in {
   suites."Soonix Tests" = {
@@ -53,6 +59,9 @@ in {
 
             assert "-f ${finalFiles}/jinja" "should exist"
             assert_file_contains ${finalFiles}/jinja "Hello world"
+
+            assert "-f ${finalFiles}/mustache" "should exist"
+            assert_file_contains ${finalFiles}/mustache "Hello world"
           '';
       }
       {

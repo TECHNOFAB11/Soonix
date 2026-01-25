@@ -100,6 +100,21 @@
       } ''
         python ${renderScript} > $out
       '';
+
+    mustache = {
+      name,
+      opts,
+      data,
+    }: let
+      inherit (opts) template;
+      mustache = opts.mustache or pkgs.mustache-go;
+      dataJson = writeText "template-data.json" (builtins.toJSON data);
+    in
+      runCommand name {
+        buildInputs = [mustache];
+      } ''
+        mustache ${dataJson} ${template} > $out
+      '';
   };
 
   buildAllFiles = files:

@@ -21,6 +21,7 @@ Soonix helps you:
 - **derivation**: Use existing Nix derivations as file content
 - **gomplate**: Advanced Go template rendering via gomplate
 - **jinja**: Python Jinja2 template rendering
+- **mustache**: Mustache template rendering
 
 ### Automatic File Management
 

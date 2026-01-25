@@ -30,7 +30,7 @@ in {
           };
 
           generator = mkOption {
-            type = types.enum ["nix" "string" "derivation" "gomplate" "jinja" "template"];
+            type = types.enum ["nix" "string" "derivation" "gomplate" "jinja" "mustache" "template"];
             description = ''
               Which engine to use for content generation.
             '';
