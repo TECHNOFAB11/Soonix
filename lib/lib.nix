@@ -50,7 +50,7 @@
     # only a passthru
     derivation = {data, ...}: data;
 
-    gotmpl = {
+    gomplate = {
       name,
       opts,
       data,
