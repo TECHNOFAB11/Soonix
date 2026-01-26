@@ -19,10 +19,10 @@
       };
     };
     gomplate = {
-      output = "gotmpl";
-      generator = "gotmpl";
+      output = "gomplate";
+      generator = "gomplate";
       data.hello = "world";
-      opts.template = ./fixtures/gotmpl_template;
+      opts.template = ./fixtures/gomplate_template;
     };
     jinja = {
       output = "jinja";
@@ -48,8 +48,8 @@ in {
             assert "-f ${finalFiles}/out/test.json" "should exist"
             assert_file_contains ${finalFiles}/out/test.json "soonix-test"
 
-            assert "-f ${finalFiles}/gotmpl" "should exist"
-            assert_file_contains ${finalFiles}/gotmpl "Hello world"
+            assert "-f ${finalFiles}/gomplate" "should exist"
+            assert_file_contains ${finalFiles}/gomplate "Hello world"
 
             assert "-f ${finalFiles}/jinja" "should exist"
             assert_file_contains ${finalFiles}/jinja "Hello world"

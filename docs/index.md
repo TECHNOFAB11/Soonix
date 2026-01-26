@@ -19,7 +19,7 @@ Soonix helps you:
 - **nix**: Convert Nix data to JSON, YAML, TOML, INI, XML formats
 - **string**: Output raw string content with optional executable permissions
 - **derivation**: Use existing Nix derivations as file content
-- **gotmpl**: Advanced Go template rendering via gomplate
+- **gomplate**: Advanced Go template rendering via gomplate
 - **jinja**: Python Jinja2 template rendering
 
 ### Automatic File Management
@@ -63,7 +63,7 @@ Automatically manage .gitignore entries for generated files to keep your reposit
 
         dockerfile = {
           output = "Dockerfile";
-          generator = "gotmpl";
+          generator = "gomplate";
           data = {
             baseImage = "node:18-alpine";
             port = 3000;

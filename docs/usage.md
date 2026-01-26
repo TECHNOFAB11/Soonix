@@ -100,7 +100,7 @@ Use Go templates for more complex file generation:
 hooks = {
   dockerfile = {
     output = "Dockerfile";
-    generator = "gotmpl";
+    generator = "gomplate";
     data = {
       baseImage = "node:18-alpine";
       workdir = "/app";
@@ -331,7 +331,7 @@ in {
 hooks = {
   kubernetes-manifest = {
     output = "k8s/deployment.yaml";
-    generator = "gotmpl";
+    generator = "gomplate";
     data = {
       app = {
         name = "my-app";

@@ -53,7 +53,7 @@ use the `devshellModule` for easy integration, see the docs for more.
 - **`nix`**: Convert Nix data to JSON, YAML, TOML, INI, XML formats
 - **`string`**: Output raw string content with optional executable permissions
 - **`derivation`**: Use existing Nix derivations as file content
-- **`gotmpl`**: Advanced Go template rendering via gomplate
+- **`gomplate`**: Advanced Go template rendering via gomplate
 - **`jinja`**: Python Jinja2 template rendering
 
 ## Docs
