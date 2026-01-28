@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.2.0](https://gitlab.com/TECHNOFAB/soonix/compare/a8acaf7143572dac1bc02b124e593d68b5bdddc7..v0.2.0) - 2026-01-28
+#### Features
+- (**generator**) add Mustache - ([26e79ed](https://gitlab.com/TECHNOFAB/soonix/commit/26e79ede19e815a619a3878ffd5fa6b757da50c4)) - asimon
+#### Bug Fixes
+- (**generator**) replace gotmpl with gomplate - ([a8acaf7](https://gitlab.com/TECHNOFAB/soonix/commit/a8acaf7143572dac1bc02b124e593d68b5bdddc7)) - asimon
+#### Miscellaneous Chores
+- (**module**) remove "template" generator type - ([481b9c4](https://gitlab.com/TECHNOFAB/soonix/commit/481b9c4a38455ba6d8502029894f9223ab2545d5)) - [@TECHNOFAB](https://gitlab.com/TECHNOFAB)
+
+- - -
+
 ## [v0.1.0](https://gitlab.com/TECHNOFAB/soonix/compare/25cc087b1da8dda965d47283c120a726b84ad6cf..v0.1.0) - 2026-01-05
 #### Features
 - add nice to have `devshellModule` to soonix module for easy import - ([add807e](https://gitlab.com/TECHNOFAB/soonix/commit/add807ef8980197bbd06652a36d937b93b2a31c7)) - [@TECHNOFAB](https://gitlab.com/TECHNOFAB)
