@@ -57,11 +57,11 @@
     "nixmkdocs-lib": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1766404754,
-        "narHash": "sha256-EjBe6x6BT8ckPirMWhSf1GfaFxORYxR/Uu71FvSAm60=",
+        "lastModified": 1767549915,
+        "narHash": "sha256-by3r2qddlyzylup5fzSaDwtoy3eFHNKb65IuIq6bsAs=",
         "owner": "TECHNOFAB",
         "repo": "nixmkdocs",
-        "rev": "cfa9606eeeb9288e2799896d7d42b3d3860f9ccb",
+        "rev": "f3b2f4b19178e97c5580367be0f97e61a085db6d",
         "type": "gitlab"
       },
       "original": {
@@ -74,16 +74,17 @@
     "nixtest-lib": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1766514204,
-        "narHash": "sha256-jK6gHvJJjUpEWrPvraBgstsF7oifatuWsj9suy7GFus=",
+        "lastModified": 1765728058,
+        "narHash": "sha256-V3FXECl1oTxEtGteNz3o3GJs/X8asSn1TxRpZ2F+htU=",
         "owner": "TECHNOFAB",
         "repo": "nixtest",
-        "rev": "b87e38847d84973e84b6727b24fea48b7bc108c1",
+        "rev": "2477ad31ae3aa4134e1bb5eeddbebe0cb64ccb57",
         "type": "gitlab"
       },
       "original": {
         "dir": "lib",
         "owner": "TECHNOFAB",
+        "ref": "v1.2.1",
         "repo": "nixtest",
         "type": "gitlab"
       }
@@ -101,11 +102,11 @@
     "treefmt-nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1767122417,
-        "narHash": "sha256-yOt/FTB7oSEKQH9EZMFMeuldK1HGpQs2eAzdS9hNS/o=",
+        "lastModified": 1769691507,
+        "narHash": "sha256-8aAYwyVzSSwIhP2glDhw/G0i5+wOrren3v6WmxkVonM=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "dec15f37015ac2e774c84d0952d57fcdf169b54d",
+        "rev": "28b19c5844cc6e2257801d43f2772a4b4c050a1b",
         "type": "github"
       },
       "original": {
