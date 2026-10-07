@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.2.1](https://gitlab.com/TECHNOFAB/soonix/compare/e508bfb4743b7c22897469640fe1a14969603a8b..v0.2.1) - 2026-10-07
+#### Bug Fixes
+- (**lib**) default `yaml` format to yaml_1_2 - ([3ae3055](https://gitlab.com/TECHNOFAB/soonix/commit/3ae305554683bdf252edf971c1404419479a778c)) - [@TECHNOFAB](https://gitlab.com/TECHNOFAB)
+#### Miscellaneous Chores
+- (**deps**) lock file maintenance - ([e508bfb](https://gitlab.com/TECHNOFAB/soonix/commit/e508bfb4743b7c22897469640fe1a14969603a8b)) - Renovate Bot
+
+- - -
+
 ## [v0.2.0](https://gitlab.com/TECHNOFAB/soonix/compare/a8acaf7143572dac1bc02b124e593d68b5bdddc7..v0.2.0) - 2026-01-28
 #### Features
 - (**generator**) add Mustache - ([26e79ed](https://gitlab.com/TECHNOFAB/soonix/commit/26e79ede19e815a619a3878ffd5fa6b757da50c4)) - asimon
